@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #000;
+}
+
+.content {
+    width: 780px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.content .box {
+    width: 350px;
+    margin: 20px;
+}
+
+.content .box.left {
+    float: left;
+}
+.content .box.right {
+    float: right;
+}
+
+select, button, input {
+    padding: 5px;
+}
+
+p span {
+    font-weight: bold;
+    padding: 5px;
+}
+
+input {
+    width: 75px;
+}
+
+ul {
+    height: 112px;
+    max-height: 112px;
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 0 0 0 15px;
+    border: 1px solid #808080;
+}
+
+ul li span.correct {
+    color: #008000;
+}
+
+ul li span.not.correct {
+    color: #FF0000;
+}

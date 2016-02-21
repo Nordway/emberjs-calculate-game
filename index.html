@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Ember.js Calculate Game</title>
+		<link href="styles/main.css" rel="stylesheet">
+	</head>
+	<body>
+        <script type="text/x-handlebars">
+
+            <div class="content">
+
+                <div class="box left">
+                    <p>Укажите уровень сложности:</p>
+
+                    <select onchange={{action (mut current_level) value="target.value"}}>
+                        {{#each m_Level.levels as |level index|}}
+                            <option value="{{index}}">{{level.name}}</option>
+                        {{/each}}
+                    </select>
+
+                    {{#if game_pause}}
+                        <button {{action "startGame"}}>Начать игру!</button>
+                    {{else}}
+                        <button {{action "stopGame"}}>Остановить игру!</button>
+                    {{/if}}
+
+                    <p><span>{{expression}}</span>
+                    {{#unless game_pause}}
+                        {{focus-input type="number" id="user-result" name="userResult" value=userResult key-up="addResult" disabled=game_pause}}
+                    {{/unless}}
+                    </p>
+                </div>
+
+                <div class="box right">
+                    <p>Среднее время ответа (LAST 10): <strong>{{avg}}</strong> сек.</p>
+                    <ul>
+                        {{#each m_Answer.answers as |answer|}}
+                            <li>
+                                <span class="correct">{{answer.expression}}{{answer.result}}</span> (за {{answer.time}} сек)
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+            </div>
+
+        </script>
+
+		<!-- Vendor -->
+		<script src="scripts/vendor/jquery-1.9.0.min.js"></script>
+		<script src="scripts/vendor/ember-template-compiler.js"></script>
+		<script src="scripts/vendor/ember.min.js"></script>
+		<!-- App -->
+		<script src="scripts/app.js"></script>
+        <!-- Routes -->
+        <script src="scripts/router.js"></script>
+        <script src="scripts/routes/application.js"></script>
+        <!-- Controllers -->
+        <script src="scripts/controllers/application.js"></script>
+        <!-- Components -->
+        <script src="scripts/components/focus-input.js"></script>
+        <!-- Models -->
+        <script src="scripts/models/answer.js"></script>
+        <script src="scripts/models/level.js"></script>
+        <script src="scripts/models/result.js"></script>
+	</body>
+</html>
