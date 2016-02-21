@@ -6,6 +6,10 @@ body {
     color: #000;
 }
 
+h3 {
+    text-align: center;
+}
+
 .content {
     width: 780px;
     margin: 0 auto;
@@ -52,4 +56,15 @@ ul li span.correct {
 
 ul li span.not.correct {
     color: #FF0000;
+}
+
+.footer {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer img {
+    height: 150px;
 }
