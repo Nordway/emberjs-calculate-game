@@ -36,7 +36,9 @@
                 </div>
 
                 <div class="box right">
-                    <p>Среднее время ответа (LAST 10): <strong>{{avg}}</strong> сек.</p>
+                    <p>Лучшее время: <strong class="time best">{{m_Result.timeBest}}</strong> сек.<br />
+                    Худшее время: <strong class="time worst">{{m_Result.timeWorst}}</strong> сек.</p>
+                    <p>Среднее время ответа (LAST 10): <strong>{{m_Result.avg}}</strong> сек.</p>
                     <ul>
                         {{#each m_Answer.answers as |answer|}}
                             <li>

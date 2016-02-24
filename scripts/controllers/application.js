@@ -16,8 +16,6 @@ App.ApplicationController = Ember.Controller.extend({
     /** @type {string} Вычисляемое выражение */
     expression: 'Вы готовы?',
 
-    /** @type {float} Среднее время вычисления */
-    avg: 0.0,
     /** @type {string} Верный ответ (компьютера) */
     compResult: '',
     /** @type {string} Ответ пользователя */
@@ -27,6 +25,8 @@ App.ApplicationController = Ember.Controller.extend({
     actions: {
         /** Запускаем игру */
         startGame: function() {
+            this.m_Result.reset();
+            this.m_Answer.reset();
             this.set('game_pause', false);
             this.m_Level.setLevel(this.current_level);
             this.startNewRound();
@@ -48,8 +48,9 @@ App.ApplicationController = Ember.Controller.extend({
 
             var t_diff = this.m_Result.getDiff();
             this.m_Result.save(t_diff);
+            this.m_Result.setBestAndWorst();
+            this.m_Result.setAvg(10);
             this.m_Answer.save(this.expression, result, this.m_Result.prepareTime(t_diff));
-            this.set('avg', this.m_Result.getAvg(10));
             this.startNewRound();
         }
     },

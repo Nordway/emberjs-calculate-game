@@ -28,6 +28,18 @@ h3 {
     float: right;
 }
 
+strong.time {
+    font-size: 15px;
+}
+
+strong.time.best {
+    color: green;
+}
+
+strong.time.worst {
+    color: red;
+}
+
 select, button, input {
     padding: 5px;
 }

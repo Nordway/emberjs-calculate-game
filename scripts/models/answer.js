@@ -17,5 +17,9 @@ App.Answer = Ember.Object.extend({
             result: userResult,
             time: t_diff
         });
+    },
+    /** Сбрасываем все результаты */
+    reset: function() {
+        this.set('answers', []);
     }
 });
